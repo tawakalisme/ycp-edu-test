@@ -209,13 +209,16 @@
     </section>
     <!-- Our Value Section -->
     <section id="our-value" class="py-12 bg-blue-600">
-      <div class="container mx-auto px-4 2xl:px-0" x-data="data().cardItems">
+      <div
+        class="container mx-auto px-4 2xl:px-0"
+        x-data="{values: data().values}"
+      >
         <div class="flex flex-col">
           <h1 class="text-white text-center lg:text-left">
             Our Value Propotion
           </h1>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <template x-for="item in data().cardItems" :key="item">
+            <template x-for="item in values" :key="item">
               <div
                 class="
                   flex flex-col
@@ -230,7 +233,7 @@
               >
                 <img
                   class="max-h-60 rounded-2xl w-full object-cover"
-                  src="https://via.placeholder.com/500x500"
+                  :src="'/assets/our-value/'+item.image"
                 />
                 <h2
                   class="text-2xl font-bold text-gray-900"
@@ -245,47 +248,71 @@
     </section>
     <!-- Programmes Section -->
     <section id="our-programmes" class="py-12 container mx-auto px-4 2xl:px-0">
-      <h1>Our Programmes</h1>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="flex flex-row">
-          <div class="flex flex-col space-y-4">
-            <div
-              class="
-                bg-blue-50
-                rounded-lg
-                border-l-8 border-blue-500
-                p-4
-                w-full
-              "
+      <h1 class="text-center lg:text-left">Our Programmes</h1>
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        x-data="{selectedProgram: 'half-day', }"
+      >
+        <div
+          class="
+            flex flex-col
+            space-y-4
+            content-center
+            justify-center justify-items-center
+          "
+        >
+          <div
+            @click="selectedProgram = 'half-day'"
+            :class="selectedProgram === 'half-day' ? 'program-active' : 'program-inactive'"
+          >
+            <h3
+              class="text-2xl font-bold"
+              :class="selectedProgram === 'half-day' ? 'text-blue-900' : 'text-gray-900'"
             >
-              <h3 class="text-2xl font-bold text-blue-900">Half-Day Program</h3>
-              <p>
-                Partners can pick and choose from all the half-day program we
-                offer to suit their schedules
-              </p>
-            </div>
-            <div class="p-4 pl-6 w-full opacity-70">
-              <h3 class="text-2xl font-bold text-gray-900">Customized Camp</h3>
-              <p>
-                Partners can leave the end-to-end camp planning process to us,
-                with a comprehensive package including programmes that are
-                tailored to their preference
-              </p>
-            </div>
-            <div class="p-4 pl-6 w-full opacity-70">
-              <h3 class="text-2xl font-bold text-gray-900">Apollo Program</h3>
-              <p>
-                Partner schools will be able to send their students to Singapore
-                to equip themselves with business skills from one of Asia’s top
-                entrepreneurial hubs (currently in Japan only)
-              </p>
-            </div>
+              Half-Day Program
+            </h3>
+            <p>
+              Partners can pick and choose from all the half-day program we
+              offer to suit their schedules
+            </p>
+          </div>
+          <div
+            @click="selectedProgram = 'camp'"
+            :class="selectedProgram === 'camp' ? 'program-active' : 'program-inactive'"
+          >
+            <h3
+              class="text-2xl font-bold"
+              :class="selectedProgram === 'camp' ? 'text-blue-900' : 'text-gray-900'"
+            >
+              Customized Camp
+            </h3>
+            <p>
+              Partners can leave the end-to-end camp planning process to us,
+              with a comprehensive package including programmes that are
+              tailored to their preference
+            </p>
+          </div>
+          <div
+            @click="selectedProgram = 'apollo'"
+            :class="selectedProgram === 'apollo' ? 'program-active' : 'program-inactive'"
+          >
+            <h3
+              class="text-2xl font-bold"
+              :class="selectedProgram === 'apollo' ? 'text-blue-900' : 'text-gray-900'"
+            >
+              Apollo Program
+            </h3>
+            <p>
+              Partner schools will be able to send their students to Singapore
+              to equip themselves with business skills from one of Asia’s top
+              entrepreneurial hubs (currently in Japan only)
+            </p>
           </div>
         </div>
         <div class="order-first lg:order-last">
           <img
-            src="https://via.placeholder.com/500x500"
-            class="rounded-2xl w-full max-h-96 object-cover"
+            :src="'/assets/our-programmes/'+getProgramPic(selectedProgram)"
+            class="rounded-2xl w-full max-h-160 object-cover"
           />
         </div>
       </div>
@@ -307,7 +334,7 @@
     <section
       id="courses"
       class="flex flex-col"
-      x-data="{cards: data().courses, focuses: data().focuses}"
+      x-data="{cards: data().courses.tech, focuses: data().focuses.tech, selectedButton: 'tech'}"
     >
       <!-- title & description -->
       <div class="pt-12 p-4 container mx-auto 2xl:p-0 mb-4">
@@ -337,12 +364,13 @@
       >
         <button
           class="
-            btn-primary
             hover:outline-none
             focus:outline-none
             hover:bg-blue-700
+            hover:text-white
           "
-          @click="tabActive = 'tech'"
+          @click="selectedButton = 'tech'; cards = data().courses.tech; focuses = data().focuses.tech;"
+          :class="{'btn-primary' : selectedButton === 'tech', 'btn-primary-light' : selectedButton !== 'tech' }"
         >
           Technological Courses
         </button>
@@ -354,7 +382,8 @@
             hover:bg-blue-700
             hover:text-white
           "
-          @click="tabActive = 'creative'"
+          @click="selectedButton = 'creative'; cards = data().courses.creative; focuses = data().focuses.creative;"
+          :class="{'btn-primary' : selectedButton === 'creative', 'btn-primary-light' : selectedButton !== 'creative' }"
         >
           Creative Thinking & Teamwork Building Courses
         </button>
@@ -366,14 +395,15 @@
             hover:bg-blue-700
             hover:text-white
           "
-          @click="tabActive = 'business'"
+          @click="selectedButton = 'business'; cards = data().courses.business; focuses = data().focuses.business;"
+          :class="{'btn-primary' : selectedButton === 'business', 'btn-primary-light' : selectedButton !== 'business' }"
         >
           Business & Leadership Courses
         </button>
       </div>
       <!-- cards -->
       <div class="flex flex-col">
-        <template x-for="(item, index) in cards.tech" :key="index">
+        <template x-for="(item, index) in cards" :key="index">
           <div
             :class="{'bg-blue-50-bottom': index === 0, 'bg-blue-700': index !== 0}"
           >
@@ -392,7 +422,7 @@
                 "
               >
                 <img
-                  src="https://via.placeholder.com/500x500"
+                  :src="'/assets/our-courses/'+item.image"
                   class="rounded-2xl w-full max-h-64 object-cover"
                 />
                 <div class="flex flex-col justify-between lg:col-span-2">
@@ -438,7 +468,7 @@
         >
           <h2 class="text-3xl font-bold text-white my-4">Main Focus</h2>
           <div class="grid grid-rows-1 lg:grid-cols-3 gap-4">
-            <template x-for="focus in focuses.tech" :key="focus">
+            <template x-for="focus in focuses" :key="focus">
               <div class="mx-auto flex flex-col items-center space-y-2 p-4">
                 <span
                   class="iconify text-6xl text-white"
@@ -584,14 +614,14 @@
           <div class="grid grid-row-1 lg:grid-cols-2 gap-4">
             <div class="flex flex-col space-y-4">
               <img src="/assets/case-1.jpg" alt="Case 1" class="rounded-2xl" />
-              <p class="text-white text-center lg:text-left">
+              <p class="text-white text-center">
                 Thai group with 40 students from 10-11 years old, engaging in a
                 2-day robotics course
               </p>
             </div>
             <div class="flex flex-col space-y-4">
               <img src="/assets/case-2.jpg" alt="Case 2" class="rounded-2xl" />
-              <p class="text-white text-center lg:text-left">
+              <p class="text-white text-center">
                 Japanese group with 156 students from 16-17 years old, engaging
                 in various half-day courses
               </p>
@@ -753,7 +783,18 @@
           <div class="flex flex-col items-center">
             <div class="grid grid-rows-1 lg:grid-cols-2 gap-4 mt-8">
               <div class="w-full flex flex-col">
-                <h2 class="text-3xl font-bold text-white my-4">Our Location</h2>
+                <h2
+                  class="
+                    text-3xl
+                    font-bold
+                    text-white
+                    my-4
+                    text-center
+                    lg:text-left
+                  "
+                >
+                  Our Location
+                </h2>
                 <div class="flex flex-col">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.799747466763!2d103.85564361435517!3d1.2946916990557038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da196d5ab30ed1%3A0xe1f47f9f849858eb!2sYCP%20Singapore!5e0!3m2!1sen!2ssg!4v1578032060905!5m2!1sen!2ssg"
@@ -762,10 +803,10 @@
                     allowfullscreen="false"
                     class="h-96 lg:h-192 xl:h-120 w-full mb-4"
                   ></iframe>
-                  <h4 class="text-white text-xl mb-4">
+                  <h4 class="text-white text-xl mb-4 text-center lg:text-left">
                     For more information, please contact us:
                   </h4>
-                  <p class="text-white font-bold">
+                  <p class="text-white font-bold text-center lg:text-left">
                     <span class="text-3xl"
                       >YCP Education Singapore Pte Ltd </span
                     ><br />
@@ -777,7 +818,16 @@
                 </div>
               </div>
               <div class="w-full flex flex-col">
-                <h2 class="text-3xl font-bold text-white my-4">
+                <h2
+                  class="
+                    text-3xl
+                    font-bold
+                    text-white
+                    my-4
+                    text-center
+                    lg:text-left
+                  "
+                >
                   Download a copy of introductory deck here!
                 </h2>
 

@@ -25,6 +25,12 @@
   .btn-primary-lg-white {
     @apply items-center justify-center px-12  py-4 text-blue-500 rounded font-bold text-xl text-center bg-white my-8 cursor-pointer transition-colors duration-300;
   }
+  .program-active {
+    @apply bg-blue-50 rounded-lg border-l-8 border-blue-500 p-4 w-full cursor-pointer transition-colors duration-300;
+  }
+  .program-inactive {
+    @apply p-4 pl-6 w-full opacity-70 cursor-pointer transition-colors duration-300;
+  }
 }
 
 @layer utilities {

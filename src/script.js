@@ -1,20 +1,23 @@
 function data() {
   return {
-    cardItems: [
+    values: [
       {
         title: "Flexibillity in planning your camp",
         description:
           "We are able to customize programs based on your requirements (age group, preferred English level), allowing you to comfortably plan your camps in Singapore",
+        image: "1-quickorder-301139-unsplash-e1541527262215.jpg",
       },
       {
         title: "Providing a wide range of courses",
         description:
           "We have a wide range of courses ranging from STEM to language and art courses, saving you from the need to contact multiple course providers",
+        image: "2-neonbrand-zFSo6bnZJTw-unsplash.jpg",
       },
       {
         title: "Connecting on a personalized level",
         description:
           "Being an international team, we take the time to understand your requirements in your local language, with a quick 48-hour response time",
+        image: "3-photo-1556745753-b2904692b3cd-scaled.jpg",
       },
     ],
     courses: {
@@ -27,6 +30,7 @@ function data() {
             "Robotics I (Beginner), Robotics II (Intermediate), Robotics III (Advanced)",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "1.1-pexels-alena-darmel-7750930.jpg",
         },
         {
           title: "Coding",
@@ -35,6 +39,7 @@ function data() {
           levels: "Coding I (Beginner), Coding II (Intermediate)",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "1.2-windows-rdiN0sC2RJ0-unsplash.jpg",
         },
         {
           title: "3D Printing",
@@ -43,6 +48,7 @@ function data() {
           levels: "N/A",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "1.3-kadir-celep-HsefvbLbNWc-unsplash.jpg",
         },
       ],
       creative: [
@@ -53,6 +59,7 @@ function data() {
           levels: "N/A",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "2.1-b85ce398-d1e0-4aac-9ed1-d054a28a0334.jpg",
         },
         {
           title: "Language Classes",
@@ -62,6 +69,7 @@ function data() {
             "Levels of difficulty will be adjusted based on the level of proficiency of student group",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "2.2-pexels-tima-miroshnichenko-5428007.jpg",
         },
         {
           title: "Sports",
@@ -70,6 +78,7 @@ function data() {
           levels: "N/A",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "2.3-pexels-andrea-piacquadio-3755440.jpg",
         },
       ],
       business: [
@@ -80,6 +89,7 @@ function data() {
           levels: "N/A",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "3.1-pexels-rodnae-productions-6936328.jpg",
         },
         {
           title: "Design Thinking",
@@ -88,6 +98,7 @@ function data() {
           levels: "Design Thinking I (Beginner), Design Thinking II (Advanced)",
           ages: "6 to 18",
           fees: "Please contact us for more information",
+          image: "3.2-pexels-kaboompics-com-6224.jpg",
         },
         {
           title: "Apollo Program",
@@ -96,6 +107,7 @@ function data() {
           levels: "N/A",
           ages: "TBA",
           fees: "Please contact us for more information",
+          image: "3.3-pexels-fauxels-3183150.jpg",
         },
       ],
     },
@@ -159,4 +171,14 @@ function data() {
       ],
     },
   };
+}
+
+function getProgramPic(program) {
+  if (program === "half-day") {
+    return "1-rsz_stock-5.jpg";
+  } else if (program === "camp") {
+    return "2-4ddd6b6c-7e10-450e-9c99-4a0d6602e87b.jpg";
+  } else {
+    return "3-062a31bc-e11f-4c7d-b37c-7d5a312e6c9f.jpg";
+  }
 }
