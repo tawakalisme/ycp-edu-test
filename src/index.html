@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>YCP Education</title>
+    <meta name="description" content="YCP Education" />
+    <meta name="author" content="YCP Education" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="/script.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <section id="navbar" class="container mx-auto px-4 2xl:px-0">
+      <nav
+        class="py-12 items-center lg:flex lg:flex-row lg:justify-between"
+        x-data="{ openMenu: false }"
+      >
+        <div class="flex flex-row justify-between">
+          <div>
+            <a href="/">
+              <img src="/assets/logo.svg" alt="YCP Education" class="max-h-8"
+            /></a>
+          </div>
+          <button
+            class="lg:hidden rounded-lg focus:outline-none focus:shadow-outline"
+            @click="openMenu = !openMenu"
+          >
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path
+                x-show="!openMenu"
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                x-show="openMenu"
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          class="hidden lg:flex lg:flex-row gap-8 items-center my-8 lg:my-0"
+          :class="{'flex': openMenu, 'hidden': !openMenu}"
+        >
+          <ul class="flex flex-col flex-grow lg:flex-row gap-8 lg:items-center">
+            <li
+              class="
+                font-bold
+                hover:text-white
+                hover:bg-blue-500
+                p-2
+                rounded-lg
+                transition-all
+                duration-200
+                text-gray-900
+              "
+            >
+              <a href="#">Home</a>
+            </li>
+            <li
+              class="
+                font-bold
+                hover:text-white
+                hover:bg-blue-500
+                p-2
+                rounded-lg
+                transition-all
+                duration-200
+                text-gray-900
+              "
+            >
+              <a href="#">About Us</a>
+            </li>
+            <li
+              class="
+                font-bold
+                hover:text-white
+                hover:bg-blue-500
+                p-2
+                rounded-lg
+                transition-all
+                duration-200
+                text-gray-900
+              "
+            >
+              <a href="#">Our Courses</a>
+            </li>
+            <li
+              class="
+                font-bold
+                hover:text-white
+                hover:bg-blue-500
+                p-2
+                rounded-lg
+                transition-all
+                duration-200
+                text-gray-900
+              "
+            >
+              <a href="#">Contact Us</a>
+            </li>
+            <li
+              class="
+                inline-flex
+                -space-x-4
+                items-center
+                bg-blue-50
+                rounded
+                py-1
+                px-4
+                w-max
+                cursor-pointer
+              "
+            >
+              <select
+                id="lang"
+                class="
+                  appearance-none
+                  font-bold
+                  bg-blue-50
+                  text-blue-500
+                  rounded-tl rounded-bl
+                  focus:outline-none
+                  hover:outline-none
+                  w-24
+                  cursor-pointer
+                "
+              >
+                <option value="english">English</option>
+                <option value="chinese">Chinese</option>
+                <option value="japanese">Japanese</option>
+              </select>
+              <div class="pointer-events-none cursor-pointer">
+                <span
+                  class="iconify text-base text-blue-600"
+                  data-inline="false"
+                  data-icon="fluent:chevron-down-28-filled"
+                ></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <!-- Hero Section -->
+    <section id="hero" class="container mx-auto px-4 2xl:px-0 py-12">
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <div class="max-w-lg">
+          <img
+            src="/assets/hero-pattern1.svg"
+            alt="pattern"
+            class="
+              hidden
+              md:flex
+              lg:hidden
+              2xl:flex
+              absolute
+              -z-10
+              left-0
+              opacity-70
+            "
+          />
+          <div
+            class="
+              bg-white
+              2xl:p-4
+              flex
+              justify-center
+              flex-col
+              lg:justify-start
+            "
+          >
+            <h1 class="text-center lg:text-left">
+              An Education Provider with Unique 21st Century Camp Programs
+            </h1>
+            <p class="text-center lg:text-left">
+              Customize a camp program that will effectively equip your students
+              with a global perspective and the skills to succeed!
+            </p>
+            <button
+              class="
+                btn-primary-lg
+                focus:outline-none
+                hover:outline-none
+                focus:bg-blue-700
+                hover:bg-blue-700
+                lg:max-w-max
+              "
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+        <img
+          src="/assets/hero.png"
+          alt="Hero Image"
+          class="order-first lg:order-last xl:max-h-160 max-h-96 mb-8"
+        />
+      </div>
+    </section>
+    <!-- Our Value Section -->
+    <section id="our-value" class="py-12 bg-blue-600">
+      <div class="container mx-auto px-4 2xl:px-0" x-data="data().cardItems">
+        <div class="flex flex-col">
+          <h1 class="text-white text-center lg:text-left">
+            Our Value Propotion
+          </h1>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <template x-for="item in data().cardItems" :key="item">
+              <div
+                class="
+                  flex flex-col
+                  space-y-4
+                  flex-1
+                  p-4
+                  bg-white
+                  shadow-blue
+                  rounded-2xl
+                  w-full
+                "
+              >
+                <img
+                  class="max-h-60 rounded-2xl w-full object-cover"
+                  src="https://via.placeholder.com/500x500"
+                />
+                <h2
+                  class="text-2xl font-bold text-gray-900"
+                  x-text="item.title"
+                ></h2>
+                <p class="w-full" x-text="item.description"></p>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Programmes Section -->
+    <section id="our-programmes" class="py-12 container mx-auto px-4 2xl:px-0">
+      <h1>Our Programmes</h1>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="flex flex-row">
+          <div class="flex flex-col space-y-4">
+            <div
+              class="
+                bg-blue-50
+                rounded-lg
+                border-l-8 border-blue-500
+                p-4
+                w-full
+              "
+            >
+              <h3 class="text-2xl font-bold text-blue-900">Half-Day Program</h3>
+              <p>
+                Partners can pick and choose from all the half-day program we
+                offer to suit their schedules
+              </p>
+            </div>
+            <div class="p-4 pl-6 w-full opacity-70">
+              <h3 class="text-2xl font-bold text-gray-900">Customized Camp</h3>
+              <p>
+                Partners can leave the end-to-end camp planning process to us,
+                with a comprehensive package including programmes that are
+                tailored to their preference
+              </p>
+            </div>
+            <div class="p-4 pl-6 w-full opacity-70">
+              <h3 class="text-2xl font-bold text-gray-900">Apollo Program</h3>
+              <p>
+                Partner schools will be able to send their students to Singapore
+                to equip themselves with business skills from one of Asia’s top
+                entrepreneurial hubs (currently in Japan only)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="order-first lg:order-last">
+          <img
+            src="https://via.placeholder.com/500x500"
+            class="rounded-2xl w-full max-h-96 object-cover"
+          />
+        </div>
+      </div>
+      <div class="flex flex-auto justify-center">
+        <button
+          class="
+            btn-primary-lg
+            focus:outline-none
+            hover:outline-none
+            focus:bg-blue-700
+            hover:bg-blue-700
+          "
+        >
+          Inquiry
+        </button>
+      </div>
+    </section>
+    <!-- Courses Section -->
+    <section
+      id="courses"
+      class="flex flex-col"
+      x-data="{cards: data().courses, focuses: data().focuses}"
+    >
+      <!-- title & description -->
+      <div class="pt-12 p-4 container mx-auto 2xl:p-0 mb-4">
+        <div class="flex flex-col items-center">
+          <h1 class="text-center">Our Courses</h1>
+          <p class="text-center mx-auto max-w-4xl">
+            YCP Education offers a holistic range of programs, spanning from
+            STEM-related lessons to artistic appreciation sessions, for children
+            from the ages of 6 to 18. As part of our customized camp service,
+            you will be able to pluck and paste the relevant programs for the
+            camp group you are looking to bring to Singapore from the following
+            list.
+          </p>
+        </div>
+      </div>
+      <!-- tab button -->
+      <div
+        class="
+          flex flex-col
+          lg:flex-row
+          justify-center
+          items-center
+          space-y-4
+          lg:space-x-4 lg:space-y-0
+          my-4
+        "
+      >
+        <button
+          class="
+            btn-primary
+            hover:outline-none
+            focus:outline-none
+            hover:bg-blue-700
+          "
+          @click="tabActive = 'tech'"
+        >
+          Technological Courses
+        </button>
+        <button
+          class="
+            btn-primary-light
+            hover:outline-none
+            focus:outline-none
+            hover:bg-blue-700
+            hover:text-white
+          "
+          @click="tabActive = 'creative'"
+        >
+          Creative Thinking & Teamwork Building Courses
+        </button>
+        <button
+          class="
+            btn-primary-light
+            hover:outline-none
+            focus:outline-none
+            hover:bg-blue-700
+            hover:text-white
+          "
+          @click="tabActive = 'business'"
+        >
+          Business & Leadership Courses
+        </button>
+      </div>
+      <!-- cards -->
+      <div class="flex flex-col">
+        <template x-for="(item, index) in cards.tech" :key="index">
+          <div
+            :class="{'bg-blue-50-bottom': index === 0, 'bg-blue-700': index !== 0}"
+          >
+            <div class="container mx-auto px-4">
+              <div
+                class="
+                  bg-white
+                  rounded-2xl
+                  p-4
+                  grid grid-rows-1
+                  lg:grid-cols-3
+                  lg:space-x-4 lg:space-y-0
+                  space-y-4
+                  shadow-blue
+                  my-4
+                "
+              >
+                <img
+                  src="https://via.placeholder.com/500x500"
+                  class="rounded-2xl w-full max-h-64 object-cover"
+                />
+                <div class="flex flex-col justify-between lg:col-span-2">
+                  <div class="mb-4 lg:mb-0">
+                    <h2 class="font-bold text-2xl" x-text="item.title"></h2>
+                    <p x-text="item.description"></p>
+                  </div>
+                  <div class="grid grid-rows-1 lg:grid-cols-3 gap-4">
+                    <div>
+                      <h3 class="text-base text-gray-600">Levels</h3>
+                      <p
+                        class="font-bold text-gray-900"
+                        x-text="item.levels"
+                      ></p>
+                    </div>
+                    <div>
+                      <h3 class="text-base text-gray-600">Suitable Ages</h3>
+                      <p class="font-bold text-gray-900" x-text="item.ages"></p>
+                    </div>
+                    <div>
+                      <h3 class="text-base text-gray-600">Courses Fees</h3>
+                      <p class="font-bold text-gray-900" x-text="item.fees"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <!-- focus -->
+      <div class="bg-blue-700">
+        <div
+          class="
+            container
+            mx-auto
+            text-center
+            flex flex-col
+            justify-center
+            pt-4
+            py-12
+          "
+        >
+          <h2 class="text-3xl font-bold text-white my-4">Main Focus</h2>
+          <div class="grid grid-rows-1 lg:grid-cols-3 gap-4">
+            <template x-for="focus in focuses.tech" :key="focus">
+              <div class="mx-auto flex flex-col items-center space-y-2 p-4">
+                <span
+                  class="iconify text-6xl text-white"
+                  data-inline="false"
+                  :data-icon="focus.icon"
+                ></span>
+                <h3
+                  class="text-2xl text-white font-bold"
+                  x-text="focus.title"
+                ></h3>
+                <p class="text-white" x-text="focus.description"></p>
+              </div>
+            </template>
+
+            <!-- <div class="mx-auto flex flex-col items-center space-y-2 p-4">
+              <span
+                class="iconify text-6xl text-white"
+                data-inline="false"
+                data-icon="fluent:lightbulb-filament-24-regular"
+              ></span>
+              <h3 class="text-2xl text-white font-bold">Analytical Skills</h3>
+              <p class="text-white">
+                Able to analyze and understand links between cause and effect
+              </p>
+            </div>
+            <div class="mx-auto flex flex-col items-center space-y-2 p-4">
+              <span
+                class="iconify text-6xl text-white"
+                data-inline="false"
+                data-icon="fluent:phone-desktop-24-regular"
+              ></span>
+              <h3 class="text-2xl text-white font-bold">
+                Technological Skills
+              </h3>
+              <p class="text-white">
+                Ability to utililze new technology for applications
+              </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Strenghts Section -->
+    <section id="strengths" class="py-12 container mx-auto px-4 2xl:px-0">
+      <div class="flex flex-col space-y-4 items-center">
+        <h1 class="text-center">Our Strengths as YCP Education</h1>
+        <img
+          src="/assets/hero-pattern2.svg"
+          alt=""
+          class="
+            -z-10
+            lg:flex
+            absolute
+            transform
+            translate-x-4/2 translate-y-4/5
+            hidden
+          "
+        />
+        <img
+          src="/assets/hero-pattern3.svg"
+          alt=""
+          class="
+            -z-10
+            lg:flex
+            absolute
+            transform
+            -translate-x-7/4
+            translate-y-7/4
+            hidden
+          "
+        />
+        <div
+          class="
+            flex flex-col
+            bg-white
+            items-center
+            rounded
+            shadow-blue
+            max-w-3xl
+            p-4
+          "
+        >
+          <img src="/assets/globe.svg" alt="" />
+          <h3 class="font-bold text-gray-900 text-2xl text-center m-2">
+            Global Footprint
+          </h3>
+          <p class="text-center">
+            With around 10 years in the education business in 5 countries, we
+            have the deep expertise to curate programs that would be the most
+            relevant for the current education scene
+          </p>
+        </div>
+        <div
+          class="
+            flex flex-col
+            bg-white
+            items-center
+            rounded
+            shadow-blue
+            max-w-3xl
+            p-4
+          "
+        >
+          <img src="/assets/ycp-icon.svg" alt="" />
+          <h3 class="font-bold text-gray-900 text-2xl text-center m-2">
+            Managed by global consulting firm, YCP Solidiance
+          </h3>
+          <p class="text-center">
+            Our curriculum is devised by our consultants from schools including
+            University of Chicago and Cornell University, allowing us to
+            understand and devise the right content to grow the leaders of
+            tomorrow
+          </p>
+        </div>
+        <div
+          class="
+            flex flex-col
+            bg-white
+            items-center
+            rounded
+            shadow-blue
+            max-w-3xl
+            p-4
+          "
+        >
+          <img src="/assets/business.svg" alt="" />
+          <h3 class="font-bold text-gray-900 text-2xl text-center m-2">
+            Focus on practical, real-world business skills
+          </h3>
+          <p class="text-center">
+            As a global consulting firm, we understand the importance of
+            business skills, and we have a strong focus on imparting such
+            real-world skills to children
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Case Studies Section -->
+    <section id="studies" class="bg-blue-25-bottom">
+      <div class="py-12 container mx-auto px-4 container 2xl:px-0">
+        <div class="flex flex-col">
+          <h1 class="text-center mb-8">Case Studies</h1>
+          <div class="grid grid-row-1 lg:grid-cols-2 gap-4">
+            <div class="flex flex-col space-y-4">
+              <img src="/assets/case-1.jpg" alt="Case 1" class="rounded-2xl" />
+              <p class="text-white text-center lg:text-left">
+                Thai group with 40 students from 10-11 years old, engaging in a
+                2-day robotics course
+              </p>
+            </div>
+            <div class="flex flex-col space-y-4">
+              <img src="/assets/case-2.jpg" alt="Case 2" class="rounded-2xl" />
+              <p class="text-white text-center lg:text-left">
+                Japanese group with 156 students from 16-17 years old, engaging
+                in various half-day courses
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Client Testimonials -->
+    <section id="testimonials" class="py-12 container mx-auto px-4 2xl:px-0">
+      <div class="flex flex-col items-center">
+        <h1 class="text-center mb-8">Client Testimonials</h1>
+        <img
+          src="/assets/hero-pattern3.svg"
+          alt=""
+          class="
+            -z-10
+            lg:flex
+            absolute
+            transform
+            translate-x-7/4 translate-y-6/4
+            hidden
+            overflow-hidden
+          "
+        />
+        <img
+          src="/assets/hero-pattern4.svg"
+          alt=""
+          class="
+            -z-10
+            lg:flex
+            absolute
+            transform
+            -translate-x-4/5
+            translate-y-6/4
+            hidden
+            overflow-hidden
+          "
+        />
+        <div class="flex flex-col space-y-4">
+          <div
+            class="
+              bg-white
+              rounded-lg
+              border-l-8 border-blue-500
+              p-4
+              w-full
+              max-w-3xl
+              shadow-blue
+            "
+          >
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">
+              From the parent of a participant of B2C Summer Camp:
+            </h3>
+            <p>
+              “Our child has truly enjoyed himself in the camp! He gained more
+              confidence in speaking English and has taken an interest in
+              robotics and coding after the camp.”
+            </p>
+          </div>
+          <div
+            class="
+              bg-white
+              rounded-lg
+              border-l-8 border-blue-500
+              p-4
+              w-full
+              max-w-3xl
+              shadow-blue
+            "
+          >
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">
+              From a partner Japanese school regarding our B2B camp services:
+            </h3>
+            <p>
+              “Working with YCP Education has been a breeze, because they are
+              the only ones who have taken the time out to understand our
+              school’s situation, and to customize a suitable camp in response.”
+            </p>
+          </div>
+          <div
+            class="
+              bg-white
+              rounded-lg
+              border-l-8 border-blue-500
+              p-4
+              w-full
+              max-w-3xl
+              shadow-blue
+            "
+          >
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">
+              From a partner travel agency in Thailand regarding our B2B camp
+              services:
+            </h3>
+            <p>
+              “YCP Education has done a perfect job in executing the curriculum
+              and in the provision of amenities for our students. I will use
+              their services again for future camp groups looking to go to
+              Singapore.”
+            </p>
+          </div>
+        </div>
+        <button
+          class="
+            btn-primary-lg
+            focus:outline-none
+            hover:outline-none
+            focus:bg-blue-700
+            hover:bg-blue-700
+          "
+        >
+          Inquiry
+        </button>
+      </div>
+    </section>
+    <!-- Our Partners, Location & Deck -->
+    <section id="partners-loc-deck" class="flex flex-col">
+      <!-- partners -->
+      <h1 class="text-center">Our Partners and Clients</h1>
+      <div class="bg-blue-50-bottom py-4 px-4 2xl:px-0">
+        <div class="container mx-auto">
+          <div class="flex flex-col items-center">
+            <div
+              class="
+                flex flex-col
+                bg-white
+                items-center
+                rounded
+                shadow-blue
+                max-w-3xl
+                p-4
+              "
+            >
+              <div
+                class="
+                  flex flex-row flex-wrap
+                  gap-8
+                  justify-center
+                  items-center
+                "
+              >
+                <img src="/assets/1-jtb.png" alt="" />
+                <img src="/assets/2-bellai.png" alt="" />
+                <img src="/assets/3-thinking.png" alt="" />
+                <img src="/assets/4-nta.png" alt="" />
+                <img src="/assets/5-bee.png" alt="" />
+                <img src="/assets/6-tm.png" alt="" />
+                <img src="/assets/7-sg.png" alt="" />
+                <img src="/assets/8-hceg.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- location & decks -->
+      <div class="bg-blue-700 pt-4 pb-12 px-4 2xl:px-0">
+        <div class="container mx-auto">
+          <div class="flex flex-col items-center">
+            <div class="grid grid-rows-1 lg:grid-cols-2 gap-4 mt-8">
+              <div class="w-full flex flex-col">
+                <h2 class="text-3xl font-bold text-white my-4">Our Location</h2>
+                <div class="flex flex-col">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.799747466763!2d103.85564361435517!3d1.2946916990557038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da196d5ab30ed1%3A0xe1f47f9f849858eb!2sYCP%20Singapore!5e0!3m2!1sen!2ssg!4v1578032060905!5m2!1sen!2ssg"
+                    frameborder="0"
+                    style="border: 0; border-radius: 1rem"
+                    allowfullscreen="false"
+                    class="h-96 lg:h-192 xl:h-120 w-full mb-4"
+                  ></iframe>
+                  <h4 class="text-white text-xl mb-4">
+                    For more information, please contact us:
+                  </h4>
+                  <p class="text-white font-bold">
+                    <span class="text-3xl"
+                      >YCP Education Singapore Pte Ltd </span
+                    ><br />
+                    5 Temasek Boulevard, #11-02, Suntec Tower Five, Singapore
+                    038985<br />
+                    Email: education@ycp.com<br />
+                    Tel: +65 6910 2604 (Singapore Office)
+                  </p>
+                </div>
+              </div>
+              <div class="w-full flex flex-col">
+                <h2 class="text-3xl font-bold text-white my-4">
+                  Download a copy of introductory deck here!
+                </h2>
+
+                <form class="grid grid-rows-1 xl:grid-cols-2 gap-4">
+                  <!-- first row -->
+                  <div class="flex flex-col">
+                    <label for="name" class="text-white font-bold mb-2"
+                      >Name <abbr title="Required field">*</abbr></label
+                    >
+                    <input
+                      type="text"
+                      id="name"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Name"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label for="email" class="text-white font-bold mb-2"
+                      >Email Address
+                      <abbr title="Required field">*</abbr></label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Email Address"
+                      required
+                    />
+                  </div>
+                  <!-- second row -->
+                  <div class="flex flex-col">
+                    <label for="phone" class="text-white font-bold mb-2"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      id="phone"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="company-school-name"
+                      class="text-white font-bold mb-2"
+                      >Company/School Name
+                      <abbr title="Required field">*</abbr></label
+                    >
+                    <input
+                      type="text"
+                      id="company-school-name"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Company/School Name"
+                    />
+                  </div>
+                  <!-- third row -->
+                  <div class="flex flex-col">
+                    <label for="country" class="text-white font-bold mb-2"
+                      >Country of Residence
+                      <abbr title="Required field">*</abbr></label
+                    >
+                    <input
+                      type="text"
+                      id="country"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Country of Residence"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label for="job" class="text-white font-bold mb-2"
+                      >Job Title</label
+                    >
+                    <input
+                      type="text"
+                      id="job"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Job Title"
+                    />
+                  </div>
+                  <div class="flex flex-col xl:col-span-2">
+                    <label for="title-inquiry" class="text-white font-bold mb-2"
+                      >Title of Inquiry
+                      <abbr title="Required field">*</abbr></label
+                    >
+                    <input
+                      type="text"
+                      id="title-inquiry"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="What is your question?"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col xl:col-span-2">
+                    <label for="message" class="text-white font-bold mb-2"
+                      >Message</label
+                    >
+                    <textarea
+                      id="message"
+                      cols="30"
+                      rows="3"
+                      class="
+                        p-4
+                        rounded-lg
+                        focus:outline-none
+                        hover:outline-none
+                        placeholder-blue-300
+                        focus:placeholder-blue-500
+                        text-gray-600
+                      "
+                      placeholder="Tell us more about your question"
+                    ></textarea>
+                  </div>
+                  <input
+                    type="button"
+                    value="Download"
+                    class="
+                      btn-primary-lg-white
+                      focus:outline-none
+                      hover:outline-none
+                      focus:bg-blue-500
+                      hover:bg-blue-500
+                      focus:text-white
+                      hover:text-white
+                      cursor-pointer
+                    "
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About -->
+    <section id="about" class="py-12 bg-blue-900 mx-auto px-4 2xl:px-0">
+      <div class="container mx-auto">
+        <div class="grid grid-rows-1 lg:grid-cols-4 gap-4">
+          <div class="lg:col-span-2">
+            <h1 class="text-white text-center lg:text-left">About Us</h1>
+            <p class="text-white text-center lg:text-left">
+              YCP Education Singapore is a B2B educational camp operator in
+              Singapore, and is a wholly-owned subsidiary of YCP Group. We are
+              managed by our consultants in YCP Solidiance, a strategy
+              consulting firm specialising in delivering high impact advisory
+              services.
+            </p>
+          </div>
+          <div class="flex flex-col space-y-4">
+            <img src="/assets/naithy.png" alt="" class="h-32 w-32 mx-auto" />
+            <div>
+              <h3 class="text-2xl text-white text-center font-bold">
+                Naithy Cyriac
+              </h3>
+              <p class="text-white text-center">NUS Business School MBA</p>
+            </div>
+          </div>
+          <div class="flex flex-col space-y-4">
+            <img
+              src="/assets/Tatsuichiro.png"
+              alt=""
+              class="h-32 w-32 mx-auto"
+            />
+            <div>
+              <h3 class="text-2xl text-white text-center font-bold">
+                Tatsuichiro Nishimura
+              </h3>
+              <p class="text-white text-center">
+                Chicago Booth MBA <br />
+                Tokyo University
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
